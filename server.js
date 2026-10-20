@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const ROOT = __dirname;
 const ORDERS_FILE = path.join(ROOT, "orders.json");
@@ -141,7 +141,7 @@ app.patch("/api/orders/:id/status", (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-    console.log(`SK MarketPlace running at http://localhost:${PORT}`);
-    console.log(`Admin dashboard: http://localhost:${PORT}/admin`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`SK MarketPlace running on port ${PORT}`);
+    console.log("Admin dashboard: /admin");
 });
