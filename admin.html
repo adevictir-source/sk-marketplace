@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Admin Orders | SK Market</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
+    }
+    header {
+      background: linear-gradient(135deg, #111827, #1e3a8a);
+      color: white;
+      padding: 25px;
+      border-radius: 14px;
+      margin-bottom: 22px;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 27px;
+    }
+    header p {
+      margin: 0;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+    .notice {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      padding: 14px;
+      border-radius: 9px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .summary-card {
+      background: white;
+      padding: 19px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #00000008;
+      border: 1px solid #e5e7eb;
+    }
+    .summary-card h3 {
+      margin: 0 0 12px;
+      color: #6b7280;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .summary-card p {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+    .orders-box {
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px #00000008;
+      border: 1px solid #e5e7eb;
+    }
+    .orders-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+    .orders-heading h2 {
+      margin: 0;
+      font-size: 21px;
+    }
+    button {
+      font-family: inherit;
+    }
+    .refresh-button,
+    .details-button,
+    .close-button {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .refresh-button {
+      background: #2563eb;
+      color: white;
+    }
+    .details-button {
+      background: #059669;
+      color: white;
+      white-space: nowrap;
+    }
+    .close-button {
+      background: #374151;
+      color: white;
+    }
+    button:hover {
+      opacity: 0.88;
+    }
+    button:focus-visible,
+    select:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      min-width: 950px;
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      vertical-align: middle;
+      font-size: 14px;
+    }
+    th {
+      background: #f9fafb;
+      color: #4b5563;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+    select {
+      min-width: 125px;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 7px;
+      background: white;
+      color: #111827;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    select:disabled {
+      background: #f3f4f6;
+      cursor: not-allowed;
+    }
+    .empty-message {
+      padding: 35px 15px;
+      text-align: center;
+      color: #6b7280;
+    }
+    .status {
+      font-weight: bold;
+    }
+    .details-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .details-content {
+      background: white;
+      width: 100%;
+      max-width: 600px;
+      margin: 35px auto;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px #00000030;
+    }
+    .details-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .details-header h2 {
+      margin: 0;
+      font-size: 21px;
+    }
+    .detail-row {
+      padding: 13px 0;
+      border-bottom: 1px solid #e5e7eb;
+      overflow-wrap: anywhere;
+    }
+    .detail-label {
+      display: block;
+      color: #6b7280;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+    .detail-value {
+      font-weight: bold;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .details-footer {
+      margin-top: 20px;
+      text-align: right;
+    }
+    footer {
+      text-align: center;
+      color: #6b7280;
+      margin-top: 25px;
+      padding: 10px;
+      font-size: 13px;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      header {
+        padding: 19px;
+      }
+      header h1 {
+        font-size: 23px;
+      }
+      .orders-box {
+        padding: 13px;
+      }
+      .summary-card {
+        padding: 15px;
+      }
+      .summary-card p {
+        font-size: 24px;
+      }
+      .orders-heading {
+        align-items: stretch;
+      }
+      .refresh-button {
+        width: 100%;
+      }
+      .details-content {
+        padding: 16px;
+        margin: 10px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SK Market Admin</h1>
+    <p>Boost Services — Order Management</p>
+  </header>
+  <div class="notice">
+    <strong>Important:</strong>
+    This page displays orders saved in this browser.
+    It is not yet connected to Firebase or a secure admin database.
+  </div>
+  <section class="summary">
+    <div class="summary-card">
+      <h3>Total Orders</h3>
+      <p id="totalOrders">0</p>
+    </div>
+<div class="summary-card">
+  <h3>Pending</h3>
+  <p id="pendingOrders">0</p>
+</div>
+<div class="summary-card">
+  <h3>Processing</h3>
+  <p id="processingOrders">0</p>
+</div>
+<div class="summary-card">
+  <h3>Completed</h3>
+  <p id="completedOrders">0</p>
+</div>
+  </section>
+  <section class="orders-box">
+    <div class="orders-heading">
+      <h2>Customer Orders</h2>
+  <button
+    type="button"
+    class="refresh-button"
+    id="refreshButton"
+  >
+    Refresh Orders
+  </button>
+</div>
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Order Reference</th>
+        <th>Platform</th>
+        <th>Service</th>
+        <th>Customer Link / Username</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody id="ordersTable">
+      <tr>
+        <td colspan="8" class="empty-message">
+          Loading orders...
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </section>
+  <div
+    class="details-modal"
+    id="orderDetailsModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="detailsTitle"
+  >
+    <div class="details-content">
+      <div class="details-header">
+        <h2 id="detailsTitle">Order Details</h2>
+    <button
+      type="button"
+      class="close-button"
+      id="closeDetailsButton"
+    >
+      Close
+    </button>
+  </div>
+  <div id="orderDetailsContent">
+    Select an order to view its details.
+  </div>
+  <div class="details-footer">
+    <button
+      type="button"
+      class="close-button"
+      id="closeDetailsFooter"
+    >
+      Close Details
+    </button>
+  </div>
+</div>
+  </div>
+  <footer>
+    SK Market Admin Panel
+  </footer>
+  <script src="admin.js"></script>
+</body>
+</html>

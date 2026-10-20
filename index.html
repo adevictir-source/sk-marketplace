@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+<title>SK Market</title>
+<meta
+    name="description"
+    content="SK Market - A modern digital marketplace."
+>
+<link
+    rel="stylesheet"
+    href="Style.css"
+>
+</head>
+<body>
+<header class="site-header">
+<div class="container header-content">
+    <a
+        href="Index.html"
+        class="logo"
+    >
+        SK Market
+    </a>
+    <nav class="main-nav">
+        <a href="#home">
+            Home
+        </a>
+        <a href="#products">
+            Products
+        </a>
+        <a href="#numbers">
+            Foreign Numbers
+        </a>
+        <a href="Promotion.html">
+            Promotion
+        </a>
+        <a href="#categories">
+            Categories
+        </a>
+        <a href="#contact">
+            Contact
+        </a>
+        <a href="Account.html">
+            👤 Account
+        </a>
+    </nav>
+    <div class="header-actions">
+        <button
+            type="button"
+            class="cart-button"
+            id="cartButton"
+        >
+            Cart
+            <span id="cartCount">
+                0
+            </span>
+        </button>
+        <button
+            type="button"
+            class="cart-button"
+            id="logoutButton"
+        >
+            Logout
+        </button>
+    </div>
+</div>
+</header>
+<main>
+<!-- =================================
+     HERO
+================================= -->
+<section
+    class="hero"
+    id="home"
+>
+<div class="container hero-content">
+    <div class="hero-text">
+        <span class="hero-label">
+            Welcome to SK Market
+        </span>
+        <h1>
+            Your trusted digital marketplace
+        </h1>
+        <p>
+            Discover quality digital products,
+            international numbers and professional
+            promotion services in one simple marketplace.
+        </p>
+        <a
+            href="#products"
+            class="primary-button"
+        >
+            Browse Products
+        </a>
+    </div>
+</div>
+</section>
+<!-- =================================
+     CATEGORIES
+================================= -->
+<section
+    class="categories-section"
+    id="categories"
+>
+<div class="container">
+    <div class="section-heading">
+        <span>
+            Explore
+        </span>
+        <h2>
+            Categories
+        </h2>
+    </div>
+    <div class="categories-grid">
+        <a
+            href="#products"
+            class="category-card"
+        >
+            🛒 Digital Products
+        </a>
+        <a
+            href="#numbers"
+            class="category-card"
+        >
+            📱 Foreign Numbers
+        </a>
+        <a
+            href="Promotion.html"
+            class="category-card"
+        >
+            🚀 Promotion Services
+        </a>
+        <a
+            href="#products"
+            class="category-card"
+        >
+            💻 Software
+        </a>
+    </div>
+</div>
+</section>
+<!-- =================================
+     FEATURED PRODUCTS
+================================= -->
+<section
+    class="products-section"
+    id="products"
+>
+<div class="container">
+    <div class="section-heading">
+        <span>
+            Marketplace
+        </span>
+        <h2>
+            Featured Products
+        </h2>
+    </div>
+    <div
+        class="products-grid"
+        id="productsGrid"
+    >
+        <!-- Products loaded by Product.js -->
+    </div>
+</div>
+</section>
+<!-- =================================
+     FOREIGN NUMBERS
+================================= -->
+<section
+    class="categories-section"
+    id="numbers"
+>
+<div class="container">
+    <div class="section-heading">
+        <span>
+            International
+        </span>
+        <h2>
+            📱 Foreign Numbers
+        </h2>
+    </div>
+    <p>
+        Choose an international phone number
+        from the country you need.
+    </p>
+    <div class="categories-grid">
+        <!-- USA -->
+        <div class="category-card">
+            <h3>
+                🇺🇸 USA
+            </h3>
+            <p>
+                International USA phone number.
+            </p>
+            <strong>
+                ₦3,500
+            </strong>
+            <br>
+            <br>
+            <button
+                type="button"
+                class="primary-button"
+                onclick="selectForeignNumber('USA')"
+            >
+                Select Number
+            </button>
+        </div>
+        <!-- UK -->
+        <div class="category-card">
+            <h3>
+                🇬🇧 United Kingdom
+            </h3>
+            <p>
+                International UK phone number.
+            </p>
+            <strong>
+                ₦3,500
+            </strong>
+            <br>
+            <br>
+            <button
+                type="button"
+                class="primary-button"
+                onclick="selectForeignNumber('United Kingdom')"
+            >
+                Select Number
+            </button>
+        </div>
+        <!-- CANADA -->
+        <div class="category-card">
+            <h3>
+                🇨🇦 Canada
+            </h3>
+            <p>
+                International Canada phone number.
+            </p>
+            <strong>
+                ₦3,500
+            </strong>
+            <br>
+            <br>
+            <button
+                type="button"
+                class="primary-button"
+                onclick="selectForeignNumber('Canada')"
+            >
+                Select Number
+            </button>
+        </div>
+        <!-- GERMANY -->
+        <div class="category-card">
+            <h3>
+                🇩🇪 Germany
+            </h3>
+            <p>
+                International Germany phone number.
+            </p>
+            <strong>
+                ₦3,500
+            </strong>
+            <br>
+            <br>
+            <button
+                type="button"
+                class="primary-button"
+                onclick="selectForeignNumber('Germany')"
+            >
+                Select Number
+            </button>
+        </div>
+        <!-- FRANCE -->
+        <div class="category-card">
+            <h3>
+                🇫🇷 France
+            </h3>
+            <p>
+                International France phone number.
+            </p>
+            <strong>
+                ₦3,500
+            </strong>
+            <br>
+            <br>
+            <button
+                type="button"
+                class="primary-button"
+                onclick="selectForeignNumber('France')"
+            >
+                Select Number
+            </button>
+        </div>
+        <!-- AUSTRALIA -->
+        <div class="category-card">
+            <h3>
+                🇦🇺 Australia
+            </h3>
+            <p>
+                International Australia phone number.
+            </p>
+            <strong>
+                ₦3,500
+            </strong>
+            <br>
+            <br>
+            <button
+                type="button"
+                class="primary-button"
+                onclick="selectForeignNumber('Australia')"
+            >
+                Select Number
+            </button>
+        </div>
+    </div>
+</div>
+</section>
+<!-- =================================
+     PROMOTION
+================================= -->
+<section
+    class="categories-section"
+    id="promotion"
+>
+<div class="container">
+    <div class="section-heading">
+        <span>
+            Grow Your Presence
+        </span>
+        <h2>
+            🚀 Promotion Services
+        </h2>
+    </div>
+    <p>
+        Choose the promotion service you need
+        for your business, content, advertising
+        campaign or brand.
+    </p>
+    <div class="categories-grid">
+        <a
+            href="Promotion.html#social-media"
+            class="category-card"
+        >
+            📣
+            <br>
+            <strong>
+                Social Media Promotion
+            </strong>
+            <p>
+                Promote your content and reach
+                your target audience.
+            </p>
+            <strong>
+                View Social Media Packages →
+            </strong>
+        </a>
+        <a
+            href="Promotion.html#content-promotion"
+            class="category-card"
+        >
+            📱
+            <br>
+            <strong>
+                Content Promotion
+            </strong>
+            <p>
+                Increase visibility for your
+                digital content.
+            </p>
+            <strong>
+                View Content Packages →
+            </strong>
+        </a>
+        <a
+            href="Promotion.html#advertising-support"
+            class="category-card"
+        >
+            🎯
+            <br>
+            <strong>
+                Advertising Support
+            </strong>
+            <p>
+                Get assistance with legitimate
+                digital advertising campaigns.
+            </p>
+            <strong>
+                View Advertising Services →
+            </strong>
+        </a>
+        <a
+            href="Promotion.html#brand-promotion"
+            class="category-card"
+        >
+            🎨
+            <br>
+            <strong>
+                Brand Promotion
+            </strong>
+            <p>
+                Professional promotion options
+                for brands and creators.
+            </p>
+            <strong>
+                View Brand Packages →
+            </strong>
+        </a>
+    </div>
+</div>
+</section>
+<!-- =================================
+     TRUST
+================================= -->
+<section class="trust-section">
+<div class="container">
+    <div class="trust-grid">
+        <div class="trust-card">
+            <h3>
+                Secure
+            </h3>
+            <p>
+                Designed with customer security
+                and privacy in mind.
+            </p>
+        </div>
+        <div class="trust-card">
+            <h3>
+                Simple
+            </h3>
+            <p>
+                Easy browsing and a straightforward
+                shopping experience.
+            </p>
+        </div>
+        <div class="trust-card">
+            <h3>
+                Support
+            </h3>
+            <p>
+                Get assistance when you need help
+                with your purchase.
+            </p>
+        </div>
+    </div>
+</div>
+</section>
+<!-- =================================
+     CONTACT
+================================= -->
+<section
+    class="contact-section"
+    id="contact"
+>
+<div class="container">
+    <div class="section-heading">
+        <span>
+            Need Help?
+        </span>
+        <h2>
+            Contact Us
+        </h2>
+    </div>
+    <p>
+        Have a question about your account,
+        payment, order, or product? Our SK Market
+        support team is ready to help you.
+    </p>
+    <div class="contact-buttons">
+        <a
+            href="https://wa.link/vow6wj"
+            id="whatsappLink"
+            class="contact-button"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            💬 WhatsApp Support
+        </a>
+        <a
+            href="https://t.me/skbtclord321"
+            id="telegramLink"
+            class="contact-button"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            ✈️ Telegram Support
+        </a>
+    </div>
+    <p class="contact-note">
+        We’re here to help you have a smooth
+        SK Market experience.
+    </p>
+</div>
+</section>
+</main>
+<!-- =================================
+     FOOTER
+================================= -->
+<footer class="site-footer">
+<div class="container">
+    <p>
+        &copy;
+        <span id="currentYear"></span>
+        SK Market.
+        All rights reserved.
+    </p>
+</div>
+</footer>
+<!-- =================================
+     FIREBASE AUTH
+================================= -->
+<script type="module">
+    import {
+        getAuth,
+        onAuthStateChanged,
+        signOut
+    }
+    from
+    "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+    import {
+        initializeApp
+    }
+    from
+    "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import {
+        firebaseConfig
+    }
+    from "./config.js";
+    const app =
+        initializeApp(firebaseConfig);
+    const auth =
+        getAuth(app);
+    onAuthStateChanged(
+        auth,
+        function (user) {
+            if (!user) {
+                window.location.href =
+                    "Login.html";
+            }
+        }
+    );
+    const logoutButton =
+        document.getElementById(
+            "logoutButton"
+        );
+    if (logoutButton) {
+        logoutButton.addEventListener(
+            "click",
+            async function () {
+                try {
+                    await signOut(auth);
+                    localStorage.removeItem(
+                        "skMarketLoginTime"
+                    );
+                    window.location.href =
+                        "Login.html";
+                }
+                catch (error) {
+                    console.error(error);
+                    alert(
+                        "Logout failed. Please try again."
+                    );
+                }
+            }
+        );
+    }
+</script>
+<!-- =================================
+     FOREIGN NUMBERS SCRIPT
+================================= -->
+<script
+    type="module"
+    src="ForeignNumbers.js"
+></script>
+<!-- =================================
+     SK MARKET SCRIPTS
+================================= -->
+<script
+    type="module"
+    src="Product.js"
+></script>
+<script
+    type="module"
+    src="Wallet.js"
+></script>
+<script
+    type="module"
+    src="Script.js"
+></script>
+</body>
+</html>

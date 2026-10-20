@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SK Market - Foreign Number</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .country-name {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .description {
+            color: #666;
+            line-height: 1.5;
+            margin-top: 8px;
+        }
+
+        /* ================================
+           AVAILABLE NUMBERS
+        ================================= */
+
+        .numbers-box {
+            margin-top: 22px;
+        }
+
+        .numbers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .number-option {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            background: white;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .number-option:hover {
+            border-color: #111827;
+        }
+
+        .number-option.selected {
+            border-color: #111827;
+            background: #f1f5f9;
+        }
+
+        .numbers-loading {
+            padding: 15px;
+            border-radius: 12px;
+            background: #f8fafc;
+            color: #666;
+            text-align: center;
+        }
+
+        /* ================================
+           PRICE
+        ================================= */
+
+        .price-box {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 14px;
+            background: #f1f5f9;
+            text-align: center;
+        }
+
+        .price-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .number-price {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        /* ================================
+           PAYMENT
+        ================================= */
+
+        .payment-box {
+            margin-top: 20px;
+            padding: 18px;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 8px 0;
+        }
+
+        .payment-row strong {
+            text-align: right;
+        }
+
+        .status {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            background: #f8fafc;
+            font-size: 14px;
+        }
+
+        /* ================================
+           BUTTON
+        ================================= */
+
+        .pay-button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: #111827;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .pay-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-top: 15px;
+            text-align: center;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* ================================
+           NUMBER RESULT
+        ================================= */
+
+        .number-result {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 14px;
+            background: #f8fafc;
+        }
+
+        .number-result div {
+            margin: 10px 0;
+        }
+
+        /* ================================
+           SUPPORT
+        ================================= */
+
+        .support {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .support a {
+            display: inline-block;
+            margin: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 480px) {
+
+            .container {
+                padding: 12px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .number-price {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="title">
+            📱 Foreign Number
+        </div>
+
+        <div class="subtitle">
+            Select an available number and its price
+            will appear automatically.
+        </div>
+
+
+        <!-- ================================
+             COUNTRY
+        ================================= -->
+
+        <div class="section">
+
+            <div class="label">
+                Selected Country
+            </div>
+
+            <div
+                id="countryName"
+                class="country-name"
+            >
+                Loading country...
+            </div>
+
+            <div
+                id="countryDescription"
+                class="description"
+            >
+                Loading...
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             AVAILABLE NUMBERS
+        ================================= -->
+
+        <div class="numbers-box">
+
+            <div class="label">
+                Available Numbers
+            </div>
+
+            <div
+                id="numbersList"
+                class="numbers-list"
+            >
+
+                <div class="numbers-loading">
+                    Loading available numbers...
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             AUTOMATIC PRICE
+        ================================= -->
+
+        <div class="price-box">
+
+            <div class="price-label">
+                Selected Number Price
+            </div>
+
+            <div
+                id="numberPrice"
+                class="number-price"
+            >
+                —
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             PAYMENT
+        ================================= -->
+
+        <div class="payment-box">
+
+            <div class="payment-row">
+
+                <span>
+                    Country
+                </span>
+
+                <strong id="countryNamePayment">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="payment-row">
+
+                <span>
+                    Selected Number
+                </span>
+
+                <strong id="selectedNumber">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="payment-row">
+
+                <span>
+                    Amount
+                </span>
+
+                <strong id="paymentAmount">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="payment-row">
+
+                <span>
+                    Payment
+                </span>
+
+                <strong>
+                    Paystack
+                </strong>
+
+            </div>
+
+
+            <div
+                id="paymentStatus"
+                class="status"
+            >
+                ⏳ Waiting for number selection
+            </div>
+
+
+            <div
+                id="orderStatus"
+                class="status"
+            >
+                ⏳ Select a number to continue
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             PAY BUTTON
+        ================================= -->
+
+        <button
+            id="payButton"
+            class="pay-button"
+            type="button"
+            disabled
+        >
+            💳 Pay Now
+        </button>
+
+
+        <div
+            id="paymentMessage"
+            class="message"
+        >
+            Select a number first.
+        </div>
+
+
+        <!-- ================================
+             NUMBER RESULT
+        ================================= -->
+
+        <div class="number-result">
+
+            <div>
+
+                <strong>
+                    Phone Number:
+                </strong>
+
+                <span id="phoneNumber">
+                    —
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    SMS:
+                </strong>
+
+                <span id="smsMessage">
+                    No SMS yet.
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Verification Code:
+                </strong>
+
+                <span id="verificationCode">
+                    —
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             SUPPORT
+        ================================= -->
+
+        <div class="support">
+
+            <p>
+                Need help?
+            </p>
+
+            <a
+                href="https://wa.link/vow6wj"
+                target="_blank"
+            >
+                WhatsApp
+            </a>
+
+            <a
+                href="https://t.me/skbtclord321"
+                target="_blank"
+            >
+                Telegram
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PAYSTACK -->
+
+<script
+    src="https://js.paystack.co/v2/inline.js"
+></script>
+
+
+<!-- SK MARKET JAVASCRIPT -->
+
+<script
+    type="module"
+    src="NumberOrder.js"
+></script>
+
+</body>
+
+</html>

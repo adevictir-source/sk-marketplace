@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>SK Market - Your Cart</title>
+    <meta
+        name="description"
+        content="SK Market shopping cart."
+    >
+    <link
+        rel="stylesheet"
+        href="Style.css"
+    >
+</head>
+<body class="cart-page">
+    <!-- =================================
+         HEADER
+         ================================= -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a
+                href="Index.html"
+                class="logo"
+            >
+                SK Market
+            </a>
+            <nav class="main-nav">
+                <a href="Index.html">
+                    Home
+                </a>
+                <a href="Index.html#products">
+                    Products
+                </a>
+                <a href="Account.html">
+                    👤 Account
+                </a>
+            </nav>
+            <div class="header-actions">
+                <a
+                    href="Index.html"
+                    class="cart-page-back"
+                >
+                    ← Continue Shopping
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- =================================
+         CART MAIN
+         ================================= -->
+    <main>
+        <section class="cart-section">
+            <div class="container">
+                <!-- PAGE TITLE -->
+                <div class="cart-heading">
+                    <span class="cart-eyebrow">
+                        SK MARKET
+                    </span>
+                    <h1>
+                        🛒 Your Shopping Cart
+                    </h1>
+                    <p>
+                        Review your selected products
+                        before continuing to checkout.
+                    </p>
+                </div>
+                <!-- CART LAYOUT -->
+                <div class="cart-layout">
+                    <!-- LEFT SIDE -->
+                    <div class="cart-products-panel">
+                        <div class="cart-panel-header">
+                            <div>
+                                <h2>
+                                    Your Items
+                                </h2>
+                                <p id="cartItemCount">
+                                    0 items
+                                </p>
+                            </div>
+                            <button
+                                type="button"
+                                id="clearCartButton"
+                                class="clear-cart-button"
+                            >
+                                Clear Cart
+                            </button>
+                        </div>
+                        <div id="cartItems">
+                            <div class="cart-loading">
+                                <div class="cart-loading-icon">
+                                    🛒
+                                </div>
+                                <p>
+                                    Loading your cart...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RIGHT SIDE -->
+                    <aside class="cart-summary-panel">
+                        <div class="summary-top">
+                            <span>
+                                ORDER SUMMARY
+                            </span>
+                            <h2>
+                                Checkout
+                            </h2>
+                        </div>
+                        <div class="summary-line">
+                            <span>
+                                Items
+                            </span>
+                            <strong id="summaryItems">
+                                0
+                            </strong>
+                        </div>
+                        <div class="summary-line">
+                            <span>
+                                Subtotal
+                            </span>
+                            <strong id="summarySubtotal">
+                                ₦0
+                            </strong>
+                        </div>
+                        <div class="summary-line">
+                            <span>
+                                Delivery
+                            </span>
+                            <strong>
+                                Digital
+                            </strong>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-total">
+                            <span>
+                                Total
+                            </span>
+                            <strong id="summaryTotal">
+                                ₦0
+                            </strong>
+                        </div>
+                        <button
+                            type="button"
+                            id="checkoutButton"
+                            class="checkout-button"
+                        >
+                            Proceed to Checkout
+                            <span>→</span>
+                        </button>
+                        <div class="secure-checkout">
+                            <span>
+                                🔒
+                            </span>
+                            <div>
+                                <strong>
+                                    Secure Checkout
+                                </strong>
+                                <p>
+                                    Your order information
+                                    is protected.
+                                </p>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <!-- SUPPORT -->
+                <div class="cart-support">
+                    <div class="cart-support-icon">
+                        💬
+                    </div>
+                    <div>
+                        <h3>
+                            Need help with your order?
+                        </h3>
+                        <p>
+                            Contact SK Market support
+                            if you have any questions.
+                        </p>
+                    </div>
+                    <div class="cart-support-links">
+                        <a
+                            href="https://wa.link/vow6wj"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            WhatsApp
+                        </a>
+                        <a
+                            href="https://t.me/skbtclord321"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Telegram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- =================================
+         CART JAVASCRIPT
+         ================================= -->
+    <script src="Cart.js"></script>
+</body>
+</html>

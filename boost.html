@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Boost Services | SK Market</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7f6;
+      color: #222;
+    }
+
+    header {
+      background: #087f5b;
+      color: white;
+      text-align: center;
+      padding: 22px 15px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+    }
+
+    header p {
+      margin: 0;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 700px;
+      margin: 30px auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #087f5b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .boost-card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .boost-card h2 {
+      margin-top: 0;
+      color: #087f5b;
+      text-align: center;
+    }
+
+    .description {
+      color: #666;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    select,
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccd5d0;
+      border-radius: 8px;
+      font-size: 15px;
+      background: white;
+    }
+
+    select:focus,
+    input:focus {
+      outline: 2px solid #087f5b;
+      border-color: #087f5b;
+    }
+
+    .hint {
+      display: block;
+      color: #777;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    .section-title {
+      margin: 28px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e5e7eb;
+      color: #087f5b;
+    }
+
+    .price-box {
+      background: #e8f7ef;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 25px 0;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid #d0e8db;
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .price-row strong {
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .total-row {
+      color: #087f5b;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .buy-button {
+      width: 100%;
+      padding: 15px;
+      background: #087f5b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .buy-button:hover {
+      background: #056747;
+    }
+
+    .buy-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .notice {
+      margin-top: 20px;
+      background: #fff7df;
+      border: 1px solid #f0dfaa;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #5d4b13;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 500px) {
+      .boost-card {
+        padding: 18px;
+      }
+
+      .price-row {
+        font-size: 14px;
+      }
+
+      .total-row {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>SK Market</h1>
+    <p>Social Media Boost Services</p>
+  </header>
+
+  <main class="container">
+
+    <a href="Promotion.html" class="back-link">
+      ← Back to Promotion
+    </a>
+
+    <section class="boost-card">
+
+      <h2 id="platformTitle">Choose Your Boost Service</h2>
+
+      <p class="description">
+        Select a service, provide your contact information,
+        enter your target link and quantity, and review your order price.
+      </p>
+
+      <form id="boostForm">
+
+        <h3 class="section-title">Customer Information</h3>
+
+        <div class="form-group">
+          <label for="customerName">Full Name</label>
+          <input
+            type="text"
+            id="customerName"
+            name="customerName"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="customerEmail">Email Address</label>
+          <input
+            type="email"
+            id="customerEmail"
+            name="customerEmail"
+            placeholder="Enter your email address"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="customerPhone">Phone Number</label>
+          <input
+            type="tel"
+            id="customerPhone"
+            name="customerPhone"
+            placeholder="Enter your phone number"
+            autocomplete="tel"
+            required
+          >
+          <small class="hint">
+            Include your country code if necessary.
+          </small>
+        </div>
+
+        <h3 class="section-title">Boost Service Details</h3>
+
+        <div class="form-group">
+          <label for="service">Choose a Service</label>
+          <select id="service" name="service" required>
+            <option value="">Loading services...</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="target">Target Link or Username</label>
+          <input
+            type="text"
+            id="target"
+            name="target"
+            placeholder="Enter your profile link or username"
+            required
+          >
+          <small class="hint">
+            Double-check your link before submitting.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            min="100"
+            max="20000"
+            step="100"
+            value="100"
+            required
+          >
+          <small class="hint">
+            Minimum: 100 | Maximum: 20,000
+          </small>
+        </div>
+
+        <div class="price-box">
+
+          <div class="price-row">
+            <span>Selected Service</span>
+            <strong id="selectedService">No service selected</strong>
+          </div>
+
+          <div class="price-row">
+            <span>Price per 1,000</span>
+            <strong id="pricePer1000">—</strong>
+          </div>
+
+          <div class="price-row total-row">
+            <span>Total Price</span>
+            <strong id="totalPrice">₦0</strong>
+          </div>
+
+        </div>
+
+        <button type="submit" id="buyBtn" class="buy-button">
+          Continue with Order
+        </button>
+
+      </form>
+
+      <div class="notice">
+        <strong>Important:</strong>
+        Submitting this form saves a local order request.
+        Payment processing and a real service supplier must be connected
+        before orders can be paid for and delivered automatically.
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> SK Market. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+  <script src="boost.js"></script>
+
+</body>
+</html>

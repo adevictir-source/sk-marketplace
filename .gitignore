@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Firebase cache
+.firebase/
+
+# Git
+.git/
+
+# Runtime files
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Test and coverage files
+coverage/
+.nyc_output/
+lib-cov/
+
+# Package manager files
+.npm/
+.yarn-integrity
+
+# Build files
+build/Release/
+
+# Editor and operating system files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Dependencies
+node_modules/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Firebase local files
+.firebase/

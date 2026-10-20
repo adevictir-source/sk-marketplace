@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Wallet - SK Market</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         HEADER
+         ================================= -->
+
+    <header class="site-header">
+
+        <div class="container">
+
+            <a
+                href="Index.html"
+                class="logo"
+            >
+                SK Market
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================
+         WALLET PAGE
+         ================================= -->
+
+    <main class="wallet-page">
+
+        <div class="container">
+
+
+            <div class="wallet-heading">
+
+                <span>SK Market</span>
+
+                <h1>My Wallet</h1>
+
+                <p>
+                    Manage your balance and view your transactions.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 WALLET BALANCE
+                 ================================= -->
+
+            <section class="wallet-balance-card">
+
+                <div>
+
+                    <p class="wallet-label">
+                        Available Balance
+                    </p>
+
+                    <h2 id="walletBalance">
+                        ₦0
+                    </h2>
+
+                </div>
+
+
+                <div class="wallet-icon">
+                    💰
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 WALLET ACTIONS
+                 ================================= -->
+
+            <section class="wallet-actions">
+
+                <button
+                    type="button"
+                    id="fundWalletButton"
+                    class="primary-button"
+                >
+                    💳 Fund Wallet
+                </button>
+
+
+                <button
+                    type="button"
+                    id="refreshWalletButton"
+                    class="secondary-button"
+                >
+                    🔄 Refresh Balance
+                </button>
+
+            </section>
+
+
+
+            <!-- =================================
+                 TRANSACTION HISTORY
+                 ================================= -->
+
+            <section class="wallet-transactions">
+
+                <div class="wallet-section-heading">
+
+                    <h2>
+                        Transaction History
+                    </h2>
+
+                    <span id="transactionCount">
+                        0 transactions
+                    </span>
+
+                </div>
+
+
+                <div id="transactionList">
+
+                    <div class="wallet-empty">
+
+                        <div class="wallet-empty-icon">
+                            📋
+                        </div>
+
+                        <h3>
+                            No transactions yet
+                        </h3>
+
+                        <p>
+                            Your wallet transactions will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =================================
+         WALLET JAVASCRIPT
+         ================================= -->
+
+    <script
+        type="module"
+        src="Wallet.js"
+    ></script>
+
+
+</body>
+
+</html>
