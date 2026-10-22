@@ -113,7 +113,7 @@ function showEmptyCart() {
                 You haven't added any products yet.
             </p>
             <a
-                href="Index.html#products"
+                href="index.html#products"
                 class="empty-cart-button"
             >
                 Browse Products
